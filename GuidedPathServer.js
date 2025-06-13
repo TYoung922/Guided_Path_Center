@@ -48,9 +48,8 @@ app.post("/send-email", async (req, res) => {
 
   try {
     const data = await resend.emails.send({
-      from: "onboarding@resend.dev", // This must be verified in your Resend account
-      // to: ["bethany@guidedpathcenter.com"],
-      to: ["thyoung89@gmail.com"],
+      from: "requsts@guidedpathcenter.com",
+      to: ["bethany@guidedpathcenter.com"],
       subject: "New Waitlist Form Submission",
       html: htmlContent,
     });

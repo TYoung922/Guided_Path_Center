@@ -20,15 +20,14 @@ body {
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
-  /* color: #094268; */
   color: white;
 }
 
 header {
   display: flex;
-  align-items: center; /* Align items vertically in the middle */
-  justify-content: space-between; /* Spread items across the container */
-  position: relative; /* Position for centering */
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
   color: #b69b00;
   padding: 15px;
   background-color: white;
@@ -60,9 +59,6 @@ h1 {
 .ownerTag {
   margin-bottom: 40px;
 }
-/* .learn_info {
-  font-size: 20px;
-} */
 .rates_info {
   font-size: 20px;
   padding-left: 15px;
@@ -141,8 +137,6 @@ input {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  /* padding-top: 75px;
-  padding-bottom: 75px; */
   padding: 75px;
 }
 
@@ -288,7 +282,6 @@ p {
   justify-content: center;
   gap: 10px;
   margin: 20px 0;
-  /* Add will-change for better performance */
   will-change: scroll-position;
 }
 
@@ -389,65 +382,34 @@ p {
   opacity: 1;
 }
 
-/* Ensure lightbox appears above everything */
 .custom-lightbox {
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
 }
 
-/* Optimize for better scrolling performance */
 .gallery {
-  /* Use transform3d to enable hardware acceleration */
   transform: translate3d(0, 0, 0);
 }
-
-/* .quick_jump {
-  display: grid;
-  grid-template-columns: (2, 1fr);
-  gap: 1rem 3rem;
-  padding: 0;
-  margin: 0 auto;
-  max-width: 28rem;
-}
-
-.quick_jump li a {
-  color: #094268;
-  text-align: center;
-  text-decoration: none;
-}
-
-.quick_jump li a:hover {
-  text-decoration: underline;
-  color: #b69b00;
-}
-
-.quick_jump li {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 30px;
-  /* text-decoration: auto; } */
-/* ---------- QUICK-JUMP LINKS ---------- */
 
 .jump_to {
   font-size: 2.5rem;
   font-weight: 700;
   text-align: center;
-  /* margin-bottom: 1rem; */
 }
 
 .quick_jump {
-  display: grid; /* ------------- core trick ------------- */
-  grid-template-columns: repeat(2, 1fr); /* two equal columns        */
-  gap: 1rem 2rem; /* row gap | column gap                   */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem 2rem;
   list-style: none;
   padding: 0;
-  margin: 0 auto; /* centers the grid inside jumpBox        */
-  max-width: 38rem; /* keeps columns from stretching too wide */
+  margin: 0 auto;
+  max-width: 38rem;
 }
 
 .quick_jump li {
-  font-size: 3.2rem; /* big, legible links                     */
+  font-size: 3.2rem;
   text-align: center;
 }
 
@@ -577,8 +539,6 @@ p {
 
 .addressContact {
   margin-right: 200px;
-  /* margin-bottom: 30px; */
-  /* font-size: 30px; */
 }
 
 .meetBV {
@@ -595,12 +555,10 @@ p {
 }
 
 .specialization {
-  display: grid; /* ------------- core trick ------------- */
-  grid-template-columns: repeat(2, 1fr); /* two equal columns        */
-  gap: 1rem 4rem; /* row gap | column gap                   */
-  /* list-style: none; */
-  /* padding: 10px; */
-  margin: 0 auto; /* centers the grid inside jumpBox        */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem 4rem;
+  margin: 0 auto;
   max-width: 28rem;
 }
 
@@ -705,7 +663,6 @@ iframe {
   height: 355px;
 }
 
-/* Add these to your media queries */
 @media (max-width: 992px) {
   iframe {
     /* width: 90%; */
@@ -739,14 +696,6 @@ iframe {
 
 /* Add these to your media queries */
 @media (max-width: 768px) {
-  /* .menu-toggle {
-    display: block;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #094268;
-  } */
-
   .menu-toggle {
     display: block;
     position: relative;
