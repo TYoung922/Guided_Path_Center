@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guided Path: Video Tour</title>
+    <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- Fixed Lightbox2 CSS with correct integrity hash -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css"
+      integrity="sha512-ZBXe+YuwHM6W4KjMYddmZTjI3wIcAV4GAIE/W/hzqInR9l9NfIZ1LebvZs1NrNxAELJ3slhL9cf+tDuGaiK0Qw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header>
+      <img class="fullBanner" src="images/fullLogo.png" alt="full Banner" />
+      <div></div>
+    </header>
+    <nav class="main-nav">
+      <ul class="nav-controls">
+        <li><a href="meet.html">Meet Bethany</a></li>
+        <li><a href="services.html">Rates & Services</a></li>
+        <li class="selected">Office Tour</li>
+        <li><a href="learn_more.html">Learn More</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <main>
+      <br /><br />
+      <div class="box">
+        <div class="disclaimer">
+          <div class="streetBox">
+            <h2 class="address">Office Address:</h2>
+            <h2 class="address hours">
+              4055 S 700 E Ste 101A
+              <br />Millcreek, UT 84107
+            </h2>
+          </div>
+          <br />
+          <div class="hoursBox">
+            <h2 class="address">Office Hours:</h2>
+            <h2 class="address hours">
+              Mon/Wed 11 am - 6 pm <br />Tues/Thurs 10 am - 6 pm
+            </h2>
+          </div>
+        </div>
+        <div class="vidContain">
+          <h2 class="video_info">
+            Come take a tour of my office so you know where to go
+            <br />
+          </h2>
+          <!-- <video width="640" height="360" poster="videos/tour.jpg" controls>
+            <source src="./videos/vids/Office_Tour.mp4" type="video/mp4" />
+          </video> -->
+          <iframe
+            width="850"
+            height="355"
+            src="https://www.youtube.com/embed/PjuMXTPvB-k?si=TbSG39W1FV7vDj5g"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <div class="gallery">
+          <h2 class="address">Photo Tour</h2>
+          <div class="lightbox-gallery" id="lightbox-gallery">
+            <!-- Gallery images will be populated by JavaScript -->
+          </div>
+        </div>
+
+        <!-- Custom Lightbox Modal - Fixed positioning -->
+        <div id="custom-lightbox" class="custom-lightbox">
+          <div class="lightbox-content">
+            <span class="close-btn" onclick="closeLightbox()">&times;</span>
+            <img id="lightbox-img" src="/placeholder.svg" alt="Full Size" />
+            <div class="nav-buttons">
+              <button id="prev-btn" onclick="navigateImage(-1)" type="button">
+                &lt;
+              </button>
+              <button id="next-btn" onclick="navigateImage(1)" type="button">
+                &gt;
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <a href="play-therapy.html" class="secretLink">
+          <img class="secret" src="./images/carin_logo.png" alt="logo" />
+        </a>
+      </div>
+    </main>
+    <footer>Guided Path Center for Trauma Healing, LLC&copy;</footer>
+
+    <!-- Load jQuery first (required for Lightbox2) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Load Lightbox2 with correct integrity -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"
+      integrity="sha512-Ixzuzfxv1EqafeQlTCufWfaC6ful6WFqIz4G+dWvK0beHw0NVJwvCKSgafpy5gwNqKmgUfIBraVwkKI+Cz0SEQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>

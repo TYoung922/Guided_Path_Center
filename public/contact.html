@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guided Path: Wait List</title>
+    <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <img class="fullBanner" src="images/fullLogo.png" alt="full Banner" />
+      <!-- <a href="meet.html">
+        <img class="logo" src="images/carin_logo.png" alt="logo" />
+      </a> -->
+      <!-- <h1>Guided Path</h1> -->
+      <!-- <h5 class="subT">Center for Trauma Healing</h5> -->
+      <div></div>
+    </header>
+    <nav class="main-nav">
+      <ul class="nav-controls">
+        <li><a href="meet.html">Meet Bethany</a></li>
+        <li><a href="services.html">Rates & Services</a></li>
+        <!-- <li><a href="rates.html">Rates</a></li> -->
+        <li><a href="video_tour.html">Office Tour</a></li>
+        <li><a href="learn_more.html">Learn More</a></li>
+        <!-- <li><a href="contact.html">Contact</a></li> -->
+        <li class="selected">Contact</li>
+      </ul>
+    </nav>
+    <main>
+      <!-- <h4 class="list-disclaim">
+        While I can't gaurantee how long it will take for me to have openings,
+        getting on the wait list is the quickest way to get an appointment.
+      </h4> -->
+      <br /><br />
+      <div class="form_container">
+        <div class="contactDisclaimer">
+          <h4 class="contactBlurb">
+            If you are seeking therapy services, I would love to gather more
+            information from you to determine if I would be a good fit or if
+            there are other referrals I can direct you toward. Please fill out
+            the following form and I will follow up with you within 3 business
+            days. <br />
+            <br />
+            If you are a therapist interested in RPT supervision, please reach
+            out to me over email or text.
+          </h4>
+          <div class="contactInfoBox">
+            <div>
+              <h4>
+                Bethany Anderson, LCSW, RPT-S™ <br />Email: &nbsp;
+                bethany@guidedpathcenter.com
+                <br />
+                Phone: &nbsp; 801-410-0515
+              </h4>
+            </div>
+            <div class="addressContact">
+              <h4>Office Address:</h4>
+              <h4>
+                4055 S 700 E Ste 101A
+                <br />Millcreek, UT 84107
+              </h4>
+            </div>
+          </div>
+        </div>
+        <form id="waitlistForm">
+          Name
+          <br />
+          <input type="text" id="fullName" name="fullName" placeholder="Name" />
+          <br /><br />
+          Email
+          <br />
+          <input type="email" name="email" id="email" placeholder="Email" />
+          <br /><br />
+          Phone Number <br />
+          <input type="tel" name="phone" id="phone" placeholder="Phone" />
+          <br />
+          <br />
+          City of Residence <br />
+          <input type="text" name="city" id="city" placeholder="City" />
+          <br />
+          <br />
+          I am seeking therapy for:
+          <br />
+          <label for="self">
+            <input
+              type="radio"
+              name="selfChild"
+              id="self"
+              class="option"
+              value="self"
+              onclick="toggleName('opt1')"
+            />Myself
+            <input
+              type="text"
+              name="selfChild"
+              id="self-age"
+              class="option"
+              placeholder="Age"
+            />
+            <input
+              type="text"
+              name="selfChild"
+              id="self-gender"
+              class="option"
+              placeholder="Gender"
+            />
+          </label>
+          <br />
+          <label for="child">
+            <input
+              type="radio"
+              name="selfChild"
+              id="child"
+              class="option"
+              value="child"
+              onclick="toggleName('opt2')"
+            />My child
+            <input
+              type="text"
+              name="selfChild"
+              id="child-name"
+              class="option"
+              placeholder="Name"
+            />
+            <input
+              type="text"
+              name="selfChild"
+              id="child-age"
+              class="option"
+              placeholder="Age"
+            />
+            <input
+              type="text"
+              name="selfChild"
+              id="child-gender"
+              class="option"
+              placeholder="Gender"
+            />
+          </label>
+          <br />
+          <br />
+          Can you do daytime appointments?
+          <br />
+          <input type="radio" name="dayTime" class="option" value="yes" />
+          Yes
+          <br />
+          <input type="radio" name="dayTime" class="option" value="no" /> No
+          <br />
+          <br />
+          Please give a brief description of why you are seeking therapy at this
+          time:
+          <br />
+          <textarea
+            name="conflict"
+            id="schedulding"
+            class="option"
+            rows="8"
+            cols="122"
+          ></textarea
+          ><br /><br />
+          How would you like to pay for sessions?
+          <br />
+          <label for="selfPay"
+            ><input
+              type="radio"
+              name="payment"
+              id="selfPay"
+              class="option"
+              value="selfPay"
+              onclick="toggleText('selfPay')"
+            />
+            Cash pay</label
+          >
+          <br />
+          <label for="insurancePay">
+            <input
+              type="radio"
+              id="insurance_Pay"
+              class="option"
+              name="payment"
+              value="insurancePay"
+              onclick="toggleText('insurancePay')"
+            />
+            Insurance
+            <input
+              type="text"
+              name="payment"
+              id="insurance-name"
+              class="option"
+              placeholder="Who is your provider?"
+            />
+            <br />
+            <input
+              type="radio"
+              id="hsa_Pay"
+              class="option"
+              name="payment"
+              value="hsaPay"
+              onclick="toggleText('selfPay')"
+            />
+            HSA
+          </label>
+          <br /><br />
+          Any questions or aditional relevant information:
+          <br />
+          <textarea
+            name="questions"
+            id="questions"
+            class="option"
+            rows="8"
+            cols="122"
+          ></textarea
+          ><br /><br />
+          <center>
+            <input type="submit" value="Submit" id="button" /> &nbsp; &nbsp;
+            <input type="reset" value="Reset" id="button" />
+            <br />
+            <div id="formMessage" class="form-message"></div>
+          </center>
+        </form>
+      </div>
+      <br /><br /><br /><br />
+    </main>
+    <footer>Guided Path Center for Trauma Healing, LLC&copy;</footer>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>

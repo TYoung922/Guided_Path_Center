@@ -1,0 +1,773 @@
+* {
+  margin: 0;
+  padding: 0px;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  background-image: url(../images/cairn_desert.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  /* color: #094268; */
+  color: white;
+}
+
+header {
+  display: flex;
+  align-items: center; /* Align items vertically in the middle */
+  justify-content: space-between; /* Spread items across the container */
+  position: relative; /* Position for centering */
+  color: #b69b00;
+  padding: 15px;
+  background-color: white;
+}
+
+.logo {
+  width: 10%;
+  height: auto;
+  padding-left: 20px;
+}
+
+.fullBanner {
+  max-width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+}
+h1 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 4rem;
+}
+
+.jump_to {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.ownerTag {
+  margin-bottom: 40px;
+}
+/* .learn_info {
+  font-size: 20px;
+} */
+.rates_info {
+  font-size: 20px;
+  padding-left: 15px;
+}
+
+.subT {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 200%);
+  font-size: 1.2rem;
+}
+
+nav {
+  background-color: #094268;
+  color: white;
+  padding: 20px;
+  font-size: 24px;
+  position: sticky;
+  top: 0px;
+  z-index: 100;
+}
+
+.nav-controls {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  white-space: nowrap;
+}
+
+.nav-controls a {
+  color: white;
+  text-decoration: none;
+}
+
+li a:hover {
+  text-decoration: underline;
+  color: #b69b00;
+}
+
+.box {
+  box-shadow: 0px 0px 20px 2px #094268;
+  margin: auto;
+  margin-bottom: 100px;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  background-color: white;
+  color: #094268;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.disclaimer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  margin-top: 25px;
+}
+
+.contactDisclaimer {
+  margin-bottom: 15px;
+}
+
+.hold {
+  font-size: 50px;
+}
+
+.vidContain {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* padding-top: 75px;
+  padding-bottom: 75px; */
+  padding: 75px;
+}
+
+.headShot_blurb {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0px 0px 20px 2px #094268;
+  margin: auto;
+  margin-bottom: 100px;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  background-color: white;
+  color: #094268;
+}
+
+.jumpBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.video_info {
+  padding: 90px;
+}
+.head_shot {
+  width: 30%;
+}
+
+.secret {
+  width: 100px;
+}
+
+.secret:hover {
+  animation: secret 0.3s infinite;
+}
+
+.form-message {
+  margin-top: 10px;
+  font-weight: bold;
+  color: green;
+}
+
+@keyframes secret {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.tour {
+  width: 800px;
+  padding: 100px;
+}
+
+p {
+  padding: 8px;
+}
+
+.mebPics {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#lgbtq {
+  height: 150px;
+}
+
+.mebPics img {
+  height: 70px;
+  padding: 5px;
+}
+
+.streetBox {
+  margin-right: 50px;
+}
+
+.hoursBox {
+  margin-left: 50px;
+}
+
+/* LightBox stuff */
+.thumb {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin: 5px;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    opacity 0.3s ease-in-out;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+}
+
+.thumb.loading {
+  opacity: 0.6;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.thumb.loaded {
+  opacity: 1;
+}
+
+.thumb:hover {
+  transform: scale(1.05);
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+.lightbox-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+  /* Add will-change for better performance */
+  will-change: scroll-position;
+}
+
+/* Custom Lightbox Styles - Fixed positioning */
+.custom-lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.lightbox-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  object-fit: contain;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10000;
+  background: none;
+  border: none;
+  padding: 0;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  color: #ccc;
+}
+
+.nav-buttons {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.nav-buttons button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 24px;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+  pointer-events: auto;
+}
+
+.nav-buttons button:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.nav-buttons button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Lightbox2 customization */
+.lb-data .lb-caption {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.lb-nav a.lb-prev,
+.lb-nav a.lb-next {
+  opacity: 0.3;
+}
+
+.lb-nav a.lb-prev:hover,
+.lb-nav a.lb-next:hover {
+  opacity: 1;
+}
+
+/* Ensure lightbox appears above everything */
+.custom-lightbox {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+/* Optimize for better scrolling performance */
+.gallery {
+  /* Use transform3d to enable hardware acceleration */
+  transform: translate3d(0, 0, 0);
+}
+
+/* .quick_jump {
+  display: grid;
+  grid-template-columns: (2, 1fr);
+  gap: 1rem 3rem;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 28rem;
+}
+
+.quick_jump li a {
+  color: #094268;
+  text-align: center;
+  text-decoration: none;
+}
+
+.quick_jump li a:hover {
+  text-decoration: underline;
+  color: #b69b00;
+}
+
+.quick_jump li {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 30px;
+  /* text-decoration: auto; } */
+/* ---------- QUICK-JUMP LINKS ---------- */
+
+.jump_to {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  /* margin-bottom: 1rem; */
+}
+
+.quick_jump {
+  display: grid; /* ------------- core trick ------------- */
+  grid-template-columns: repeat(2, 1fr); /* two equal columns        */
+  gap: 1rem 2rem; /* row gap | column gap                   */
+  list-style: none;
+  padding: 0;
+  margin: 0 auto; /* centers the grid inside jumpBox        */
+  max-width: 38rem; /* keeps columns from stretching too wide */
+}
+
+.quick_jump li {
+  font-size: 3.2rem; /* big, legible links                     */
+  text-align: center;
+}
+
+.quick_jump a {
+  color: #094268;
+  text-decoration: none;
+}
+
+.quick_jump a:hover {
+  text-decoration: underline;
+  color: #b69b00;
+}
+
+/* ---------- fallback to one column on narrow screens ---------- */
+@media (max-width: 600px) {
+  .quick_jump {
+    grid-template-columns: 1fr;
+  }
+  .quick_jump li {
+    font-size: 2.2rem;
+  }
+}
+
+.GP_therapist {
+  text-align: center;
+  padding: 25px;
+}
+
+.form_container {
+  box-shadow: 0px 0px 20px 2px #094268;
+  margin: auto;
+  padding: 50px;
+  border-radius: 10px;
+  width: 60%;
+  font-size: 1.1rem;
+  background-color: white;
+  color: #094268;
+}
+
+#button {
+  transform: translate(-50% -50%);
+  background-color: #094268;
+  color: white;
+  padding: 7px;
+  border-radius: 3px;
+  border-width: 4px;
+  border-color: #094268;
+  font-size: 1.1rem;
+}
+
+#button:hover {
+  border-color: #b69b00;
+  border-width: 4px;
+  color: #b69b00;
+}
+
+#insurance-name {
+  display: none;
+}
+
+#child-name {
+  display: none;
+}
+#child-age {
+  display: none;
+}
+#child-gender {
+  display: none;
+}
+#self-age {
+  display: none;
+}
+
+#self-gender {
+  display: none;
+}
+
+.option {
+  margin-right: 8px;
+  margin-bottom: 6px;
+}
+
+.list-disclaim {
+  text-align: center;
+  margin: 20px;
+  padding-top: 30px;
+}
+
+.info-block {
+  box-shadow: 0px 0px 20px 2px #094268;
+  margin: auto;
+  margin-bottom: 100px;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 20px;
+  background-color: white;
+  color: #094268;
+}
+
+.aproach-box {
+  width: 60%;
+}
+.forty-Box {
+  width: 40%;
+}
+
+.meetVid {
+  width: 40%;
+}
+
+.address {
+  font-size: 30px;
+}
+
+.contactInfoBox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.addressContact {
+  margin-right: 200px;
+  /* margin-bottom: 30px; */
+  /* font-size: 30px; */
+}
+
+.meetBV {
+  display: block;
+  margin: 0 auto;
+}
+
+.memb-box {
+  width: 35%;
+}
+
+.exper-box {
+  width: 55%;
+}
+
+.specialization {
+  display: grid; /* ------------- core trick ------------- */
+  grid-template-columns: repeat(2, 1fr); /* two equal columns        */
+  gap: 1rem 4rem; /* row gap | column gap                   */
+  /* list-style: none; */
+  /* padding: 10px; */
+  margin: 0 auto; /* centers the grid inside jumpBox        */
+  max-width: 28rem;
+}
+
+.specialization li {
+  font-size: 20px;
+}
+
+.licenseBox {
+  box-shadow: 0px 0px 20px 2px #094268;
+  margin: auto;
+  margin-bottom: 100px;
+  padding: 20px;
+  border-radius: 10px;
+  width: 15%;
+  background-color: white;
+  color: #094268;
+}
+
+.goBack {
+  padding: 20px;
+  padding-left: 50px;
+  font-size: 1.3rem;
+  color: whitesmoke;
+}
+
+.goBack a {
+  text-decoration: none;
+  color: white;
+}
+
+.goBack a:hover {
+  text-decoration: underline;
+  color: #b69b00;
+}
+
+.space {
+  padding-top: 100px;
+}
+
+footer {
+  background-color: #094268;
+  color: white;
+  text-align: center;
+  padding: 30px;
+  width: 100%;
+}
+
+.selected {
+  text-decoration: underline;
+}
+
+.contactBlurb {
+  padding-top: 4px;
+  padding-bottom: 18px;
+}
+
+.surprise a:link {
+  color: rgb(248, 248, 248);
+}
+.surprise a:visited {
+  color: rgb(248, 248, 248);
+}
+.surprise a:hover {
+  color: #b69b00;
+}
+
+.who_service {
+  font-size: 20px;
+  padding-left: 25px;
+  padding-top: 6px;
+}
+
+.rates {
+  width: 45%;
+}
+
+.rpt {
+  width: 55%;
+}
+
+.accepting {
+  width: 85%;
+  text-align: center;
+}
+
+.loud {
+  font-size: 3.5rem;
+}
+
+/* ======== Mobile tweaks ======== */
+@media (max-width: 600px) {
+  /* ——— Layout & spacing ——— */
+  body {
+    background-attachment: scroll;
+  }
+  header {
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+  .logo {
+    width: 40%;
+    padding-left: 0;
+  }
+  .fullBanner {
+    max-width: 70%;
+  }
+  h1 {
+    position: static;
+    transform: none;
+    font-size: 2rem;
+    text-align: center;
+    margin: 0.5rem auto;
+  }
+  .subT {
+    position: static;
+    transform: none;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  nav {
+    font-size: 1rem;
+    padding: 10px;
+    width: 100%;
+  }
+  .nav-controls {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .box,
+  .headShot_blurb,
+  .info-block,
+  .form_container {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .vidContain,
+  .headShot_blurb {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .video_info {
+    padding: 20px;
+  } /* shrink big left/right padding */
+  .head_shot,
+  .tour {
+    width: 100%;
+    padding: 0;
+  } /* images/videos span full width */
+
+  .specialization {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    max-width: 100%;
+  }
+  .specialization li {
+    font-size: 1rem;
+  }
+
+  .licenseBox {
+    width: 60%;
+  }
+
+  /* ——— Typography scaling ——— */
+  .jump_to {
+    font-size: 1.8rem;
+  }
+  .learn_info {
+    font-size: 1rem;
+  }
+  p {
+    padding: 4px;
+  }
+
+  /* ——— Buttons & links ——— */
+  #button {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  /* ——— Utility ——— */
+  .space {
+    padding-top: 60px;
+  }
+}
