@@ -1,8 +1,19 @@
 const { Resend } = require("resend");
-require("dotenv").config();
 
 // Initialize Resend with your API key
 const resend = new Resend(process.env.RESEND_API_KEY);
+
+// Helper function to parse URL-encoded form data
+function parseFormData(body) {
+  const params = new URLSearchParams(body);
+  const formData = {};
+
+  for (const [key, value] of params) {
+    formData[key] = value;
+  }
+
+  return formData;
+}
 
 exports.handler = async (event, context) => {
   // Only allow POST requests
@@ -11,8 +22,8 @@ exports.handler = async (event, context) => {
   }
 
   try {
-    // Parse the form data
-    const formData = JSON.parse(event.body);
+    // Parse the URL-encoded form data
+    const formData = parseFormData(event.body);
     const {
       fullName,
       email,

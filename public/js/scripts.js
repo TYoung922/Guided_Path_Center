@@ -149,19 +149,31 @@ document.addEventListener("DOMContentLoaded", () => {
       // ...
     });
 
+    // Find the form submission event listener and update the fetch URL:
+
+    const form = document.querySelector("form");
+    const messageBox = document.getElementById("message");
+
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
       const formData = new FormData(form);
-      const formBody = new URLSearchParams(formData);
+      const formDataObj = {};
+
+      // Convert FormData to a regular object
+      formData.forEach((value, key) => {
+        formDataObj[key] = value;
+      });
 
       try {
+        // Update this line to point to your Netlify function
         const response = await fetch("/.netlify/functions/send-email", {
           method: "POST",
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
+            "Content-Type": "application/json",
           },
-          body: formBody,
+          // Send as JSON instead of form-urlencoded
+          body: JSON.stringify(formDataObj),
         });
 
         const text = await response.text();
