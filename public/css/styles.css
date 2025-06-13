@@ -3,6 +3,12 @@
   padding: 0px;
 }
 
+/* *,
+*::before,
+*::after {
+  box-sizing: border-box;
+} */
+
 html,
 body {
   margin: 0;
@@ -102,13 +108,17 @@ li a:hover {
   margin-bottom: 100px;
   padding: 20px;
   border-radius: 10px;
-  width: 80%;
+  width: 85%;
   background-color: white;
   color: #094268;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+input {
+  font-size: 20px;
 }
 
 .disclaimer {
@@ -551,6 +561,14 @@ p {
 .address {
   font-size: 30px;
 }
+.addressHeader {
+  font-size: 40px;
+}
+
+.photoHeader {
+  font-size: 40px;
+  padding-left: 20px;
+}
 
 .contactInfoBox {
   display: flex;
@@ -626,8 +644,10 @@ footer {
   background-color: #094268;
   color: white;
   text-align: center;
-  padding: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   width: 100%;
+  font-size: 20px;
 }
 
 .selected {
@@ -672,102 +692,306 @@ footer {
   font-size: 3.5rem;
 }
 
-/* ======== Mobile tweaks ======== */
-@media (max-width: 600px) {
-  /* ——— Layout & spacing ——— */
-  body {
-    background-attachment: scroll;
+iframe {
+  width: 600px;
+  height: 355px;
+}
+
+/* Video size small screens */
+
+iframe {
+  max-width: 100%;
+  width: 600px;
+  height: 355px;
+}
+
+/* Add these to your media queries */
+@media (max-width: 992px) {
+  iframe {
+    /* width: 90%; */
+    height: 340px;
   }
-  header {
-    flex-wrap: wrap;
-    padding: 10px;
+}
+
+@media (max-width: 768px) {
+  iframe {
+    height: 300px;
   }
-  .logo {
-    width: 40%;
-    padding-left: 0;
+}
+
+@media (max-width: 480px) {
+  iframe {
+    height: 240px;
   }
-  .fullBanner {
-    max-width: 70%;
-  }
-  h1 {
-    position: static;
-    transform: none;
-    font-size: 2rem;
-    text-align: center;
-    margin: 0.5rem auto;
-  }
-  .subT {
-    position: static;
-    transform: none;
-    font-size: 1rem;
-    text-align: center;
+}
+
+/* nave menu featuers */
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+}
+
+/* Add these to your media queries */
+@media (max-width: 768px) {
+  /* .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #094268;
+  } */
+
+  .menu-toggle {
+    display: block;
+    position: relative;
+    background-color: #094268;
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 24px;
+    color: white;
+    border: none;
+    text-align: right;
   }
 
   nav {
-    font-size: 1rem;
-    padding: 10px;
-    width: 100%;
+    padding: 0;
   }
+
   .nav-controls {
+    display: none;
     flex-direction: column;
-    gap: 0.5rem;
+    align-items: center;
+    width: 100%;
+    padding-top: 10px;
+  }
+
+  .nav-controls.active {
+    display: flex;
+  }
+
+  .nav-controls li {
+    margin: 10px 0;
+  }
+}
+
+/* Tablet Styles */
+@media (max-width: 992px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  .logo {
+    width: 15%;
+  }
+
+  .fullBanner {
+    max-width: 60%;
   }
 
   .box,
   .headShot_blurb,
-  .info-block,
-  .form_container {
-    width: 95%;
+  .form_container,
+  .aproach-box,
+  .forty-Box {
+    width: 90%;
     padding: 15px;
   }
 
-  .vidContain,
+  .vidContain {
+    padding: 30px;
+  }
+
+  .video_info {
+    padding: 40px;
+  }
+
+  .tour {
+    width: 100%;
+    padding: 30px;
+  }
+
+  .contactInfoBox {
+    flex-direction: column;
+  }
+
+  .addressContact {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .memb-box,
+  .exper-box,
+  .rates,
+  .rpt {
+    width: 90%;
+  }
+
+  .licenseBox {
+    width: 40%;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+    position: static;
+    transform: none;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .subT {
+    position: static;
+    transform: none;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo {
+    width: 25%;
+    padding-left: 0;
+    margin-bottom: 10px;
+  }
+
+  .fullBanner {
+    max-width: 90%;
+  }
+
+  /* Mobile Navigation */
+  nav {
+    padding: 10px;
+    font-size: 18px;
+  }
+
+  .nav-controls {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  /* Content Sections */
   .headShot_blurb {
     flex-direction: column;
-    gap: 1.5rem;
+  }
+
+  .head_shot {
+    width: 70%;
+    margin-bottom: 20px;
+  }
+
+  .vidContain {
+    flex-direction: column;
+    padding: 20px;
   }
 
   .video_info {
     padding: 20px;
-  } /* shrink big left/right padding */
-  .head_shot,
-  .tour {
-    width: 100%;
-    padding: 0;
-  } /* images/videos span full width */
-
-  .specialization {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-    max-width: 100%;
   }
-  .specialization li {
-    font-size: 1rem;
+
+  .meetVid {
+    width: 90%;
+  }
+
+  /* Quick Jump Section */
+  .jump_to {
+    font-size: 2rem;
+  }
+
+  /* Form and Contact */
+  .form_container {
+    width: 95%;
+    padding: 20px;
+  }
+
+  /* Address and Contact Info */
+  .address {
+    font-size: 24px;
+  }
+
+  .addressHeader {
+    font-size: 30px;
+  }
+
+  /* Gallery */
+  .thumb {
+    width: 120px;
+    height: 120px;
   }
 
   .licenseBox {
-    width: 60%;
+    width: 70%;
   }
 
-  /* ——— Typography scaling ——— */
+  /* Typography */
+  .loud {
+    font-size: 2.5rem;
+  }
+
+  .specialization {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .logo {
+    width: 40%;
+  }
+
+  nav {
+    font-size: 16px;
+  }
+
+  .box,
+  .headShot_blurb,
+  .form_container {
+    width: 95%;
+    padding: 10px;
+  }
+
   .jump_to {
     font-size: 1.8rem;
   }
-  .learn_info {
-    font-size: 1rem;
-  }
-  p {
-    padding: 4px;
+
+  .quick_jump li {
+    font-size: 1.8rem;
   }
 
-  /* ——— Buttons & links ——— */
-  #button {
-    width: 100%;
-    font-size: 1rem;
+  .thumb {
+    width: 100px;
+    height: 100px;
   }
 
-  /* ——— Utility ——— */
-  .space {
-    padding-top: 60px;
+  .licenseBox {
+    width: 90%;
+  }
+
+  .addressHeader {
+    font-size: 24px;
+  }
+
+  .address {
+    font-size: 20px;
+  }
+
+  .loud {
+    font-size: 2rem;
   }
 }
