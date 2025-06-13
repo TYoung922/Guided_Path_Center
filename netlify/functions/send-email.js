@@ -23,7 +23,7 @@ exports.handler = async (event, context) => {
 
   try {
     // Parse the URL-encoded form data
-    const formData = parseFormData(event.body);
+    const formData = JSON.parse(event.body);
     const {
       fullName,
       email,

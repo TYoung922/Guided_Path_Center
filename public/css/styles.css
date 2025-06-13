@@ -650,6 +650,13 @@ footer {
   font-size: 3.5rem;
 }
 
+.formBtns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 iframe {
   width: 600px;
   height: 355px;
