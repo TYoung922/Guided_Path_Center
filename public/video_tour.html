@@ -6,13 +6,7 @@
     <title>Guided Path: Video Tour</title>
     <link rel="shortcut icon" href="/favicon.png" type="image/png" />
     <link rel="stylesheet" href="css/styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css"
-      integrity="sha512-ZBXe+YuwHM6W4KjMYddmZTjI3wIcAV4GAIE/W/hzqInR9l9NfIZ1LebvZs1NrNxAELJ3slhL9cf+tDuGaiK0Qw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <link rel="stylesheet" href="css/gallery.css" />
   </head>
   <body>
     <header>
@@ -67,10 +61,12 @@
 
         <div class="gallery">
           <h2 class="photoHeader">Photo Tour</h2>
-          <div class="lightbox-gallery" id="lightbox-gallery"></div>
+          <div class="lightbox-gallery" id="lightbox-gallery">
+            <!-- Images will be dynamically added here by JavaScript -->
+          </div>
         </div>
 
-        <!-- Custom Lightbox Modal - Fixed positioning -->
+        <!-- Custom Lightbox Modal -->
         <div id="custom-lightbox" class="custom-lightbox">
           <div class="lightbox-content">
             <span class="close-btn" onclick="closeLightbox()">&times;</span>
@@ -93,13 +89,6 @@
     </main>
     <footer>Guided Path Center for Trauma Healing, LLC&copy;</footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"
-      integrity="sha512-Ixzuzfxv1EqafeQlTCufWfaC6ful6WFqIz4G+dWvK0beHw0NVJwvCKSgafpy5gwNqKmgUfIBraVwkKI+Cz0SEQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
     <script src="js/scripts.js"></script>
     <script src="js/smallScreenMenu.js"></script>
   </body>
