@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const formBody = new URLSearchParams(formData);
 
       try {
-        const response = await fetch("/send-email", {
+        const response = await fetch("/.netlify/functions/send-email", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",

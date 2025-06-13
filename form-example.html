@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Contact Form</title>
+  </head>
+  <body>
+    <!-- Netlify Form - Notice the netlify attribute and hidden input -->
+    <form name="contact" method="POST" data-netlify="true">
+      <!-- Hidden input for Netlify -->
+      <input type="hidden" name="form-name" value="contact" />
+
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </body>
+</html>
