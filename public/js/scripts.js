@@ -317,6 +317,8 @@
 
 // Find the form submission event listener and update the fetch URL:
 
+// Find the form submission event listener and update the fetch URL:
+
 const form = document.querySelector("form");
 const messageBox = document.getElementById("message");
 
@@ -501,28 +503,56 @@ document.addEventListener("click", (e) => {
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM loaded, setting up page...");
 
-  // FIXED: Use the correct IDs that match your HTML
   const form = document.getElementById("waitlistForm");
   const messageBox = document.getElementById("formMessage");
 
   if (form) {
+    let isSubmitting = false;
+
     form.addEventListener("reset", () => {
-      // Reset form logic if needed
+      isSubmitting = false;
+
+      // Hide conditional fields when form is reset
+      const childName = document.getElementById("child-name");
+      const childAge = document.getElementById("child-age");
+      const childGender = document.getElementById("child-gender");
+      const selfAge = document.getElementById("self-age");
+      const selfGender = document.getElementById("self-gender");
+      const insuranceName = document.getElementById("insurance-name");
+
+      // Hide all conditional fields
+      if (childName) childName.style.display = "none";
+      if (childAge) childAge.style.display = "none";
+      if (childGender) childGender.style.display = "none";
+      if (selfAge) selfAge.style.display = "none";
+      if (selfGender) selfGender.style.display = "none";
+      if (insuranceName) insuranceName.style.display = "none";
     });
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
+      // Prevent double submissions
+      if (isSubmitting) {
+        return;
+      }
+      isSubmitting = true;
+
+      // Disable the submit button to give visual feedback
+      const submitButton = form.querySelector('input[type="submit"]');
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.value = "Sending...";
+      }
+
       const formData = new FormData(form);
       const formDataObj = {};
 
-      // Convert FormData to a regular object
       formData.forEach((value, key) => {
         formDataObj[key] = value;
       });
 
       try {
-        // Send to Netlify function
         const response = await fetch("/.netlify/functions/send-email", {
           method: "POST",
           headers: {
@@ -544,6 +574,13 @@ document.addEventListener("DOMContentLoaded", () => {
       } catch (err) {
         messageBox.style.color = "red";
         messageBox.textContent = "Unexpected error occurred: " + err.message;
+      } finally {
+        // Re-enable the submit button and reset the flag
+        isSubmitting = false;
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.value = "Submit";
+        }
       }
     });
   }
