@@ -57,6 +57,7 @@ h1 {
 }
 
 .ownerTag {
+  text-align: center;
   margin-bottom: 40px;
 }
 .rates_info {
@@ -121,6 +122,8 @@ input {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
   margin-bottom: 15px;
   margin-top: 25px;
 }
@@ -162,6 +165,7 @@ input {
 }
 
 .video_info {
+  display: visible;
   padding: 90px;
 }
 .head_shot {
@@ -736,6 +740,31 @@ iframe {
   }
 }
 
+@media (max-width: 625px) {
+  .disclaimer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .streetBox,
+  .hoursBox {
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .hoursBox {
+    margin-top: 20px;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .video_info {
+    display: none;
+  }
+}
+
 /* Tablet Styles */
 @media (max-width: 992px) {
   h1 {
@@ -949,5 +978,84 @@ iframe {
 
   .loud {
     font-size: 2rem;
+  }
+}
+
+/* Make textareas responsive */
+textarea {
+  width: 100%;
+  max-width: 100%;
+  min-height: 120px; /* Replace the rows attribute */
+  padding: 10px;
+  font-size: 16px; /* Reduce from 20px for better mobile experience */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical; /* Allow vertical resizing only */
+  box-sizing: border-box;
+}
+
+/* Responsive font sizes */
+@media (max-width: 768px) {
+  textarea {
+    font-size: 14px;
+    min-height: 100px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  textarea {
+    font-size: 14px;
+    min-height: 80px;
+    padding: 6px;
+  }
+}
+
+/* Play Therapy Logo responsive sizing */
+#playThLogo {
+  height: 70px; /* Default size to match other logos */
+}
+
+/* Tablet and smaller screens */
+@media (max-width: 992px) {
+  #playThLogo {
+    height: 60px;
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 768px) {
+  #playThLogo {
+    height: 50px;
+  }
+
+  /* Also ensure the membership pictures container is responsive */
+  .mebPics {
+    justify-content: center;
+  }
+
+  .mebPics img {
+    height: 50px; /* Make all logos smaller on mobile */
+    max-width: 100%;
+  }
+
+  #lgbtq {
+    height: 80px; /* Reduce the LGBTQ logo size too */
+  }
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+  #playThLogo {
+    height: 40px;
+  }
+
+  .mebPics img {
+    height: 40px;
+    padding: 3px;
+  }
+
+  #lgbtq {
+    height: 60px;
   }
 }

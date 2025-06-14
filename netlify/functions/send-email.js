@@ -52,7 +52,7 @@ exports.handler = async (event, context) => {
 
     // Send email using Resend (same as your original code)
     const data = await resend.emails.send({
-      from: "requsts@guidedpathcenter.com",
+      from: "requests@guidedpathcenter.com",
       to: ["bethany@guidedpathcenter.com"],
       subject: "New Waitlist Form Submission",
       html: htmlContent,
