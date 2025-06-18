@@ -51,6 +51,11 @@ h1 {
   font-size: 4rem;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 130px;
+}
+
 .jump_to {
   font-size: 40px;
   font-weight: bold;
@@ -134,6 +139,7 @@ input {
 
 .hold {
   font-size: 50px;
+  text-align: center;
 }
 
 .vidContain {
