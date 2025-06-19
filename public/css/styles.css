@@ -569,7 +569,7 @@ p {
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem 4rem;
   margin: 0 auto;
-  max-width: 28rem;
+  max-width: 30rem;
 }
 
 .specialization li {
@@ -933,6 +933,7 @@ iframe {
   .specialization {
     grid-template-columns: 1fr;
     max-width: 100%;
+    padding-left: 30px;
   }
 }
 
