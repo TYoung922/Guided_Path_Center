@@ -188,6 +188,117 @@ document.addEventListener("DOMContentLoaded", () => {
       if (messageBox) messageBox.textContent = "";
     });
 
+    // Enhanced form validation function
+    function validateForm() {
+      const messageBox = document.getElementById("formMessage");
+      let isValid = true;
+      let errorMessage = "";
+
+      // Clear any previous error message
+      if (messageBox) {
+        messageBox.textContent = "";
+        messageBox.style.color = "";
+      }
+
+      // Check basic required fields
+      const requiredFields = [
+        { id: "fullName", name: "Name" },
+        { id: "email", name: "Email" },
+        { id: "phone", name: "Phone Number" },
+        { id: "city", name: "City of Residence" },
+      ];
+
+      for (const field of requiredFields) {
+        const element = document.getElementById(field.id);
+        if (!element || !element.value.trim()) {
+          isValid = false;
+          errorMessage += `${field.name} is required. `;
+        }
+      }
+
+      // Check self/child selection
+      const selfChildSelected = document.querySelector(
+        'input[name="selfChild"]:checked'
+      );
+      if (!selfChildSelected) {
+        isValid = false;
+        errorMessage +=
+          "Please select whether you are seeking therapy for yourself or your child. ";
+      } else {
+        // Check conditional fields based on selection
+        if (selfChildSelected.value === "self") {
+          const selfAge = document.getElementById("self-age");
+          const selfGender = document.getElementById("self-gender");
+          if (!selfAge || !selfAge.value.trim()) {
+            isValid = false;
+            errorMessage += "Please enter your age. ";
+          }
+          if (!selfGender || !selfGender.value.trim()) {
+            isValid = false;
+            errorMessage += "Please enter your gender. ";
+          }
+        } else if (selfChildSelected.value === "child") {
+          const childName = document.getElementById("child-name");
+          const childAge = document.getElementById("child-age");
+          const childGender = document.getElementById("child-gender");
+          if (!childName || !childName.value.trim()) {
+            isValid = false;
+            errorMessage += "Please enter your child's name. ";
+          }
+          if (!childAge || !childAge.value.trim()) {
+            isValid = false;
+            errorMessage += "Please enter your child's age. ";
+          }
+          if (!childGender || !childGender.value.trim()) {
+            isValid = false;
+            errorMessage += "Please enter your child's gender. ";
+          }
+        }
+      }
+
+      // Check daytime appointment selection
+      const dayTimeSelected = document.querySelector(
+        'input[name="dayTime"]:checked'
+      );
+      if (!dayTimeSelected) {
+        isValid = false;
+        errorMessage +=
+          "Please select whether you can do daytime appointments. ";
+      }
+
+      // Check therapy description
+      const therapyDescription = document.getElementById("schedulding");
+      if (!therapyDescription || !therapyDescription.value.trim()) {
+        isValid = false;
+        errorMessage +=
+          "Please provide a description of why you are seeking therapy. ";
+      }
+
+      // Check payment method
+      const paymentSelected = document.querySelector(
+        'input[name="payment"]:checked'
+      );
+      if (!paymentSelected) {
+        isValid = false;
+        errorMessage += "Please select a payment method. ";
+      } else if (paymentSelected.value === "insurancePay") {
+        const insuranceName = document.getElementById("insurance-name");
+        if (!insuranceName || !insuranceName.value.trim()) {
+          isValid = false;
+          errorMessage += "Please enter your insurance provider name. ";
+        }
+      }
+
+      if (!isValid) {
+        messageBox.style.color = "red";
+        messageBox.textContent = errorMessage.trim();
+      } else {
+        messageBox.textContent = "";
+      }
+
+      return isValid;
+    }
+
     // Form Submit Event
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -197,6 +308,13 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Already submitting, ignoring duplicate");
         return;
       }
+
+      // Enhanced validation for conditional fields - run this first
+      if (!validateForm()) {
+        console.log("Form validation failed");
+        return;
+      }
+
       isSubmitting = true;
 
       // Show loading state

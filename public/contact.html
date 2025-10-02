@@ -61,23 +61,23 @@
           </div>
         </div>
         <form id="waitlistForm">
-          Name
+          Name <span style="color: red">*</span>
           <br />
           <input type="text" id="fullName" name="fullName" placeholder="Name" />
           <br /><br />
-          Email
+          Email <span style="color: red">*</span>
           <br />
           <input type="email" name="email" id="email" placeholder="Email" />
           <br /><br />
-          Phone Number <br />
+          Phone Number <span style="color: red">*</span> <br />
           <input type="tel" name="phone" id="phone" placeholder="Phone" />
           <br />
           <br />
-          City of Residence <br />
+          City of Residence <span style="color: red">*</span> <br />
           <input type="text" name="city" id="city" placeholder="City" />
           <br />
           <br />
-          I am seeking therapy for:
+          I am seeking therapy for: <span style="color: red">*</span>
           <br />
           <label for="self">
             <input
@@ -93,14 +93,14 @@
               name="selfChild"
               id="self-age"
               class="option"
-              placeholder="Age"
+              placeholder="Age *"
             />
             <input
               type="text"
               name="selfChild"
               id="self-gender"
               class="option"
-              placeholder="Gender"
+              placeholder="Gender *"
             />
           </label>
           <br />
@@ -118,35 +118,36 @@
               name="selfChild"
               id="child-name"
               class="option"
-              placeholder="Name"
+              placeholder="Name *"
             />
             <input
               type="text"
               name="selfChild"
               id="child-age"
               class="option"
-              placeholder="Age"
+              placeholder="Age *"
             />
             <input
               type="text"
               name="selfChild"
               id="child-gender"
               class="option"
-              placeholder="Gender"
+              placeholder="Gender *"
             />
           </label>
           <br />
           <br />
-          Can you do daytime appointments?
+          Can you do daytime appointments? <span style="color: red">*</span>
           <br />
           <input type="radio" name="dayTime" class="option" value="yes" />
           Yes
           <br />
-          <input type="radio" name="dayTime" class="option" value="no" /> No
+          <input type="radio" name="dayTime" class="option" value="no" />
+          No
           <br />
           <br />
           Please give a brief description of why you are seeking therapy at this
-          time:
+          time: <span style="color: red">*</span>
           <br />
           <textarea
             name="conflict"
@@ -156,9 +157,10 @@
           ></textarea
           ><br /><br />
           How would you like to pay for sessions?
+          <span style="color: red">*</span>
           <br />
-          <label for="selfPay"
-            ><input
+          <label for="selfPay">
+            <input
               type="radio"
               name="payment"
               id="selfPay"
@@ -184,7 +186,7 @@
               name="payment"
               id="insurance-name"
               class="option"
-              placeholder="Who is your provider?"
+              placeholder="Who is your provider? *"
             />
             <br />
             <input
@@ -210,9 +212,8 @@
           <div class="formBtns">
             <input type="submit" value="Submit" id="button" /> &nbsp; &nbsp;
             <input type="reset" value="Reset" id="button" />
-            <br />
-            <div id="formMessage" class="form-message"></div>
           </div>
+          <div id="formMessage" class="form-message"></div>
         </form>
       </div>
       <br /><br /><br /><br />
