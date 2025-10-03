@@ -30,13 +30,19 @@ exports.handler = async (event, context) => {
       phone,
       city,
       selfChild,
+      selfAge,
+      selfGender,
+      childName,
+      childAge,
+      childGender,
       dayTime,
       conflict,
       payment,
+      insuranceProvider,
       questions,
     } = formData;
 
-    // Create HTML content (same as your original code)
+    // Create HTML content with all form fields
     const htmlContent = `
       <h2>New Waitlist Form Submission</h2>
       <p><strong>Name:</strong> ${fullName}</p>
@@ -44,10 +50,28 @@ exports.handler = async (event, context) => {
       <p><strong>Phone:</strong> ${phone}</p>
       <p><strong>City:</strong> ${city}</p>
       <p><strong>Therapy for:</strong> ${selfChild}</p>
+      ${
+        selfChild === "self"
+          ? `
+        <p><strong>Age:</strong> ${selfAge || "Not provided"}</p>
+        <p><strong>Gender:</strong> ${selfGender || "Not provided"}</p>
+      `
+          : ""
+      }
+      ${
+        selfChild === "child"
+          ? `
+        <p><strong>Child's Name:</strong> ${childName || "Not provided"}</p>
+        <p><strong>Child's Age:</strong> ${childAge || "Not provided"}</p>
+        <p><strong>Child's Gender:</strong> ${childGender || "Not provided"}</p>
+      `
+          : ""
+      }
       <p><strong>Can do daytime appointments:</strong> ${dayTime}</p>
       <p><strong>Reason for therapy:</strong> ${conflict}</p>
       <p><strong>Payment method:</strong> ${payment}</p>
-      <p><strong>Additional Questions:</strong> ${questions}</p>
+      ${payment === "insurancePay" ? `<p><strong>Insurance Provider:</strong> ${insuranceProvider || "Not provided"}</p>` : ""}
+      <p><strong>Additional Questions:</strong> ${questions || "None"}</p>
     `;
 
     // Send email using Resend (same as your original code)
