@@ -497,6 +497,22 @@ p {
   display: none;
 }
 
+#otherEx {
+  display: none;
+}
+
+#friendReferal {
+  display: none;
+}
+
+#proRef {
+  display: none;
+}
+
+#otherWay {
+  display: none;
+}
+
 .option {
   margin-right: 8px;
   margin-bottom: 6px;

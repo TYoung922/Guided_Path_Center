@@ -8,6 +8,39 @@ function toggleText(selectedOpt) {
   }
 }
 
+function toggleOther(selectedOpt) {
+  const textInput = document.getElementById("otherEx");
+  if (textInput && selectedOpt === "other") {
+    textInput.style.display = "inline";
+  } else if (textInput) {
+    textInput.style.display = "none";
+  }
+}
+
+function toggleHowFind(selectedOpt) {
+  const friendText = document.getElementById("friendReferal");
+  const proText = document.getElementById("proRef");
+  const otherText = document.getElementById("otherWay");
+
+  if (selectedOpt === "friend") {
+    friendText.style.display = "inline";
+    proText.style.display = "none";
+    otherText.style.display = "none";
+  } else if (selectedOpt === "proRef") {
+    friendText.style.display = "none";
+    proText.style.display = "inline";
+    otherText.style.display = "none";
+  } else if (selectedOpt === "other") {
+    friendText.style.display = "none";
+    proText.style.display = "none";
+    otherText.style.display = "inline";
+  } else {
+    friendText.style.display = "none";
+    proText.style.display = "none";
+    otherText.style.display = "none";
+  }
+}
+
 function toggleName(opt) {
   const childName = document.getElementById("child-name");
   const childAge = document.getElementById("child-age");
@@ -212,18 +245,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const element = document.getElementById(field.id);
         if (!element || !element.value.trim()) {
           isValid = false;
-          errorMessage += `${field.name} is required. `;
+          errorMessage += `${field.name} is required.\n`;
         }
       }
 
       // Check self/child selection
       const selfChildSelected = document.querySelector(
-        'input[name="selfChild"]:checked'
+        'input[name="selfChild"]:checked',
       );
       if (!selfChildSelected) {
         isValid = false;
         errorMessage +=
-          "Please select whether you are seeking therapy for yourself or your child. ";
+          "Please select whether you are seeking therapy for yourself or your child.\n";
       } else {
         // Check conditional fields based on selection
         if (selfChildSelected.value === "self") {
@@ -231,11 +264,11 @@ document.addEventListener("DOMContentLoaded", () => {
           const selfGender = document.getElementById("self-gender");
           if (!selfAge || !selfAge.value.trim()) {
             isValid = false;
-            errorMessage += "Please enter your age. ";
+            errorMessage += "Please enter your age.\n";
           }
           if (!selfGender || !selfGender.value.trim()) {
             isValid = false;
-            errorMessage += "Please enter your gender. ";
+            errorMessage += "Please enter your gender.\n";
           }
         } else if (selfChildSelected.value === "child") {
           const childName = document.getElementById("child-name");
@@ -243,27 +276,43 @@ document.addEventListener("DOMContentLoaded", () => {
           const childGender = document.getElementById("child-gender");
           if (!childName || !childName.value.trim()) {
             isValid = false;
-            errorMessage += "Please enter your child's name. ";
+            errorMessage += "Please enter your child's name.\n";
           }
           if (!childAge || !childAge.value.trim()) {
             isValid = false;
-            errorMessage += "Please enter your child's age. ";
+            errorMessage += "Please enter your child's age.\n";
           }
           if (!childGender || !childGender.value.trim()) {
             isValid = false;
-            errorMessage += "Please enter your child's gender. ";
+            errorMessage += "Please enter your child's gender.\n";
           }
         }
       }
 
       // Check daytime appointment selection
       const dayTimeSelected = document.querySelector(
-        'input[name="dayTime"]:checked'
+        'input[name="dayTime"]:checked',
       );
       if (!dayTimeSelected) {
         isValid = false;
         errorMessage +=
-          "Please select whether you can do daytime appointments. ";
+          "Please select whether you can do daytime appointments.\n";
+      }
+
+      // Check frequency selection
+      const howFrequent = document.querySelector(
+        'input[name="frequency"]:checked',
+      );
+      if (!howFrequent) {
+        isValid = false;
+        errorMessage += "Please select how often you want to meet.\n";
+      }
+
+      // Check Availability
+      const whenAvailable = document.getElementById("whenAvailable");
+      if (!whenAvailable.value.trim()) {
+        isValid = false;
+        errorMessage += "Please share your avaialability.\n";
       }
 
       // Check therapy description
@@ -271,21 +320,43 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!therapyDescription || !therapyDescription.value.trim()) {
         isValid = false;
         errorMessage +=
-          "Please provide a description of why you are seeking therapy. ";
+          "Please provide a description of why you are seeking therapy.\n";
       }
 
       // Check payment method
       const paymentSelected = document.querySelector(
-        'input[name="payment"]:checked'
+        'input[name="payment"]:checked',
       );
       if (!paymentSelected) {
         isValid = false;
-        errorMessage += "Please select a payment method. ";
+        errorMessage += "Please select a payment method.\n";
       } else if (paymentSelected.value === "insurancePay") {
         const insuranceName = document.getElementById("insurance-name");
         if (!insuranceName || !insuranceName.value.trim()) {
           isValid = false;
-          errorMessage += "Please enter your insurance provider name. ";
+          errorMessage += "Please enter your insurance provider name.\n";
+        }
+      }
+
+      // Check How Find
+      const howLearn = document.querySelector('input[name="howFind"]:checked');
+      if (!howLearn) {
+        isValid = false;
+        errorMessage += "Please select how you found Guided Path.\n";
+      } else {
+        const fRef = document.getElementById("friendReferal");
+        const pRef = document.getElementById("proRef");
+        const otherFind = document.getElementById("otherWay");
+
+        if (howLearn.value == "friend" && !fRef.value.trim()) {
+          isValid = false;
+          errorMessage += "Please say who reffered you.\n";
+        } else if (howLearn.value == "proReferal" && !pRef.value.trim()) {
+          isValid = false;
+          errorMessage += "Please say who reffered you.\n";
+        } else if (howLearn.value === "other" && !otherFind.value.trim()) {
+          isValid = false;
+          errorMessage += "Please explain how you found Guided Path.\n";
         }
       }
 
@@ -476,7 +547,7 @@ document.addEventListener("DOMContentLoaded", () => {
       {
         rootMargin: "100px",
         threshold: 0.1,
-      }
+      },
     );
 
     // Start observing thumbnails

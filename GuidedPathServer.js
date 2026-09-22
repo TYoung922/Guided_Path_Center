@@ -28,10 +28,25 @@ app.post("/send-email", async (req, res) => {
     city,
     selfChild,
     dayTime,
+    whenAvailable,
+    frequency,
+    frequencyOther,
     conflict,
     payment,
+    howFind,
+    FriendWhoRefer,
+    whoProRefer,
+    otherFind,
     questions,
+    botField,
   } = req.body;
+
+  if (botField) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ error: "Spam detected" }),
+    };
+  }
 
   const htmlContent = `
     <h2>New Waitlist Form Submission</h2>
@@ -41,8 +56,13 @@ app.post("/send-email", async (req, res) => {
     <p><strong>City:</strong> ${city}</p>
     <p><strong>Therapy for:</strong> ${selfChild}</p>
     <p><strong>Can do daytime appointments:</strong> ${dayTime}</p>
+    <p><strong>When available:</strong> ${whenAvailable}</p>
+    <p><strong>Wants to meet:</strong> ${frequency}</p>
+    <p><strong>Other chosen for frequency:</strong> ${frequencyOther}</p>
     <p><strong>Reason for therapy:</strong> ${conflict}</p>
     <p><strong>Payment method:</strong> ${payment}</p>
+    <p><strong>How did you find Guided Path:</strong> ${howFind}</p>
+    <p><strong>Additional info on how they found Guided Path: ${FriendWhoRefer} ${whoProRefer} ${otherFind}
     <p><strong>Additional Questions:</strong> ${questions}</p>
   `;
 

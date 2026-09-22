@@ -146,6 +146,55 @@
           No
           <br />
           <br />
+          When are you available to meet?<span style="color: red">*</span>
+          <br />
+          <input
+            type="text"
+            name="whenAvailable"
+            class="option"
+            id="whenAvailable"
+          />
+          <!-- Add textbox when available to meet -->
+          <br />
+          <br />
+          <!-- How often are you hoping to have therapy? weekly, every other week, other w/ textbox -->
+          How often are you hoping to have therapy?
+          <span style="color: red">*</span><br />
+          <input
+            type="radio"
+            name="frequency"
+            class="option"
+            value="weekly"
+            onclick="toggleOther('weekly')"
+          />
+          Weekly <br />
+          <input
+            type="radio"
+            name="frequency"
+            class="option"
+            value="everyOther"
+            onclick="toggleOther('everyOther')"
+          />
+          Every Other Week <br />
+          <input
+            type="radio"
+            name="frequency"
+            class="option"
+            value="other"
+            onclick="toggleOther('other')"
+          />
+          Other
+          <input
+            type="text"
+            name="frequencyOther"
+            class="option"
+            id="otherEx"
+            placeholder="Please describe"
+          />
+
+          <br />
+          <br />
+
           Please give a brief description of why you are seeking therapy at this
           time: <span style="color: red">*</span>
           <br />
@@ -200,8 +249,73 @@
             HSA
           </label>
           <br /><br />
+          How did you find Guided Path?<span style="color: red">*</span>
+          <br />
+          <input
+            type="radio"
+            name="howFind"
+            class="option"
+            value="google"
+            onclick="toggleHowFind('google')"
+          />Google search <br />
+          <input
+            type="radio"
+            name="howFind"
+            class="option"
+            value="inssurance"
+            onclick="toggleHowFind('insurance')"
+          />My inssurance <br />
+          <input
+            type="radio"
+            name="howFind"
+            class="option"
+            value="friend"
+            onclick="toggleHowFind('friend')"
+          />Reffered by a friend
+          <input
+            type="text"
+            name="FriendWhoRefer"
+            class="option popUp"
+            id="friendReferal"
+            placeholder="Who reffered you?"
+          />
+          <br />
+          <input
+            type="radio"
+            name="howFind"
+            class="option"
+            value="proReferal"
+            onclick="toggleHowFind('proRef')"
+          />Reffered by another profesional
+          <input
+            type="text"
+            name="whoProRefer"
+            class="option popUp"
+            id="proRef"
+            placeholder="Who reffered you?"
+          />
+          <br />
+          <input
+            type="radio"
+            name="howFind"
+            class="option"
+            value="other"
+            onclick="toggleHowFind('other')"
+          />Other
+          <input
+            type="text"
+            name="otherFind"
+            class="option popUp"
+            id="otherWay"
+            placeholder="Please explain"
+          />
+          <br /><br />
           Any questions or additional relevant information:
           <br />
+          <!-- add quesiont: How did you find Guided Path 
+          radio buttons google search, my inssurance, reffered by friend add textbox for who, 
+          reffered by other profesional add textbox for who, other w/ textbox
+          -->
           <textarea
             name="questions"
             id="questions"
@@ -209,6 +323,14 @@
             placeholder="Any questions or additional information..."
           ></textarea
           ><br /><br />
+          <!-- Look into bot prevention tacktics for the form. look into email o.zas.o.fo.luz.a.78@gmail.com ozasofoluza78@gmail.com -->
+          <input
+            name="botField"
+            type="text"
+            tabindex="-1"
+            autocomplete="off"
+            style="display: none"
+          />
           <div class="formBtns">
             <input type="submit" value="Submit" id="button" /> &nbsp; &nbsp;
             <input type="reset" value="Reset" id="button" />
