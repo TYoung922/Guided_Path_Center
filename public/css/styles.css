@@ -476,6 +476,22 @@ p {
   color: #b69b00;
 }
 
+#resetBtn {
+  transform: translate(-50% -50%);
+  background-color: white;
+  color: #094268;
+  padding: 7px;
+  border-radius: 3px;
+  border-width: 4px;
+  border-color: #094268;
+  font-size: 1.1rem;
+}
+
+#resetBtn:hover {
+  background-color: #b69b00;
+  color: red;
+}
+
 #insurance-name {
   display: none;
 }
