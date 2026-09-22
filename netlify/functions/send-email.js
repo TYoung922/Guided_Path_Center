@@ -36,11 +36,22 @@ exports.handler = async (event, context) => {
       childAge,
       childGender,
       dayTime,
+      whenAvailable,
+      frequency,
+      frequencyOther,
       conflict,
       payment,
       insuranceProvider,
       questions,
+      botField,
     } = formData;
+
+    if (botField) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: "Spam detected" }),
+      };
+    }
 
     // Create HTML content with all form fields
     const htmlContent = `
@@ -68,7 +79,16 @@ exports.handler = async (event, context) => {
           : ""
       }
       <p><strong>Can do daytime appointments:</strong> ${dayTime}</p>
+      <p><strong>Availability:</strong> ${whenAvailable}</p>
       <p><strong>Reason for therapy:</strong> ${conflict}</p>
+      <p><strong>Session frequency:</strong> ${frequency}</p>
+      ${
+        frequency === "other"
+          ? `
+        <p><strong>Other type of frequency:</strong> ${frequencyOther || "Not provided"}</p>
+        `
+          : ""
+      }
       <p><strong>Payment method:</strong> ${payment}</p>
       ${payment === "insurancePay" ? `<p><strong>Insurance Provider:</strong> ${insuranceProvider || "Not provided"}</p>` : ""}
       <p><strong>Additional Questions:</strong> ${questions || "None"}</p>
