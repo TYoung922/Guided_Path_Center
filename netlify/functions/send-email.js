@@ -98,6 +98,7 @@ exports.handler = async (event, context) => {
     const data = await resend.emails.send({
       from: "requests@guidedpathcenter.com",
       to: ["bethany@guidedpathcenter.com"],
+      // to: ["thyoung89@gmail.com"],
       subject: "New Waitlist Form Submission",
       html: htmlContent,
     });

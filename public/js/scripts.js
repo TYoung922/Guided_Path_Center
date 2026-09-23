@@ -203,6 +203,10 @@ document.addEventListener("DOMContentLoaded", () => {
         "self-age",
         "self-gender",
         "insurance-name",
+        "otherEx",
+        "friendReferal",
+        "proRef",
+        "otherWay",
       ];
 
       fieldsToHide.forEach((fieldId) => {
@@ -237,8 +241,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const requiredFields = [
         { id: "fullName", name: "Name" },
         { id: "email", name: "Email" },
-        { id: "phone", name: "Phone Number" },
-        { id: "city", name: "City of Residence" },
+        { id: "phone", name: "Phone number" },
+        { id: "city", name: "City of residence" },
       ];
 
       for (const field of requiredFields) {
@@ -305,14 +309,15 @@ document.addEventListener("DOMContentLoaded", () => {
       );
       if (!howFrequent) {
         isValid = false;
-        errorMessage += "Please select how often you want to meet.\n";
+        errorMessage +=
+          "Please select how frequently you're wanting therapy sessions.\n";
       }
 
       // Check Availability
       const whenAvailable = document.getElementById("whenAvailable");
       if (!whenAvailable.value.trim()) {
         isValid = false;
-        errorMessage += "Please share your avaialability.\n";
+        errorMessage += "Please share your availability.\n";
       }
 
       // Check therapy description
@@ -407,8 +412,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       console.log("Sending form data:", formDataObj);
 
+      // /.netlify/functions/send-email
+
       try {
-        const response = await fetch("/.netlify/functions/send-email", {
+        const response = await fetch("/send-email", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

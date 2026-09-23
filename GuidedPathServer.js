@@ -8,6 +8,7 @@ const port = process.env.PORT || 3000;
 
 // Middleware to parse form data
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
 
 // Middleware to serve static files
 app.use(express.static(__dirname + "/public"));
@@ -27,12 +28,18 @@ app.post("/send-email", async (req, res) => {
     phone,
     city,
     selfChild,
+    selfAge,
+    selfGender,
+    childName,
+    childAge,
+    childGender,
     dayTime,
     whenAvailable,
     frequency,
     frequencyOther,
     conflict,
     payment,
+    insuranceProvider,
     howFind,
     FriendWhoRefer,
     whoProRefer,
@@ -42,10 +49,11 @@ app.post("/send-email", async (req, res) => {
   } = req.body;
 
   if (botField) {
-    return {
-      statusCode: 400,
-      body: JSON.stringify({ error: "Spam detected" }),
-    };
+    // return {
+    //   statusCode: 400,
+    //   body: JSON.stringify({ error: "Spam detected" }),
+    // };
+    return res.status(400).json({ error: "Spam detected" });
   }
 
   const htmlContent = `
@@ -54,13 +62,36 @@ app.post("/send-email", async (req, res) => {
     <p><strong>Email:</strong> ${email}</p>
     <p><strong>Phone:</strong> ${phone}</p>
     <p><strong>City:</strong> ${city}</p>
-    <p><strong>Therapy for:</strong> ${selfChild}</p>
+    <p><strong>Therapy for:</strong> ${selfChild}
+    ${
+      selfChild === "self"
+        ? `
+        <p><strong>Age:</strong> ${selfAge || "Not provided"}</p>
+        <p><strong>Gender:</strong> ${selfGender || "Not provided"}</p>
+      `
+        : ""
+    }
+      ${
+        selfChild === "child"
+          ? `
+        <p><strong>Child's Name:</strong> ${childName || "Not provided"}</p>
+        <p><strong>Child's Age:</strong> ${childAge || "Not provided"}</p>
+        <p><strong>Child's Gender:</strong> ${childGender || "Not provided"}</p>
+      `
+          : ""
+      } </p>
     <p><strong>Can do daytime appointments:</strong> ${dayTime}</p>
     <p><strong>When available:</strong> ${whenAvailable}</p>
     <p><strong>Wants to meet:</strong> ${frequency}</p>
-    <p><strong>Other chosen for frequency:</strong> ${frequencyOther}</p>
+    ${
+      frequency === "other"
+        ? `
+        <p><strong>Other type of frequency:</strong> ${frequencyOther || "Not provided"}</p>
+        `
+        : ""
+    }
     <p><strong>Reason for therapy:</strong> ${conflict}</p>
-    <p><strong>Payment method:</strong> ${payment}</p>
+    <p><strong>Payment method:</strong> ${payment} ${payment === "insurancePay" ? `<p><strong>Insurance Provider:</strong> ${insuranceProvider || "Not provided"}</p>` : ""}</p>
     <p><strong>How did you find Guided Path:</strong> ${howFind}</p>
     <p><strong>Additional info on how they found Guided Path: ${FriendWhoRefer} ${whoProRefer} ${otherFind}
     <p><strong>Additional Questions:</strong> ${questions}</p>
@@ -70,6 +101,7 @@ app.post("/send-email", async (req, res) => {
     const data = await resend.emails.send({
       from: "requsts@guidedpathcenter.com",
       to: ["bethany@guidedpathcenter.com"],
+      // to: ["thyoung89@gmail.com"],
       subject: "New Waitlist Form Submission",
       html: htmlContent,
     });
