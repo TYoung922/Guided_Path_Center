@@ -412,10 +412,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       console.log("Sending form data:", formDataObj);
 
-      // /.netlify/functions/send-email
+      // /.netlify/functions/send-email  /send-email
 
       try {
-        const response = await fetch("/send-email", {
+        const response = await fetch("/.netlify/functions/send-email", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
