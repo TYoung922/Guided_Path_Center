@@ -59,6 +59,23 @@ exports.handler = async (event, context) => {
       };
     }
 
+    const isSelfNumbers = /^\d*$/.test(selfAge);
+    const isChildNumbers = /^\d*$/.test(childAge);
+
+    if (selfAge !== "" && !isSelfNumbers) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: "Spam detected" }),
+      };
+    }
+
+    if (childAge !== "" && !isChildNumbers) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: "Spam detected" }),
+      };
+    }
+
     // Create HTML content with all form fields
     const htmlContent = `
     <h2>New Waitlist Form Submission</h2>
