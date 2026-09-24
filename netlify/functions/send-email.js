@@ -50,6 +50,8 @@ exports.handler = async (event, context) => {
       botField,
     } = formData;
 
+    console.log("Bot field received:", botField);
+
     if (botField) {
       return {
         statusCode: 400,
@@ -95,7 +97,7 @@ exports.handler = async (event, context) => {
     <p><strong>Reason for therapy:</strong> ${conflict}</p>
     <p><strong>Payment method:</strong> ${payment} ${payment === "insurancePay" ? `<p><strong>Insurance Provider:</strong> ${insuranceProvider || "Not provided"}</p>` : ""}</p>
     <p><strong>How did you find Guided Path:</strong> ${howFind}</p>
-    <p><strong>Additional info on how they found Guided Path: ${FriendWhoRefer} ${whoProRefer} ${otherFind}
+    <p><strong>Referral Source:</strong> ${FriendWhoRefer} ${whoProRefer} ${otherFind}
     <p><strong>Additional Questions:</strong> ${questions}</p>
   `;
     // `
