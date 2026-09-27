@@ -112,10 +112,10 @@ exports.handler = async (event, context) => {
         : ""
     }
     <p><strong>Reason for therapy:</strong> ${conflict}</p>
-    <p><strong>Payment method:</strong> ${payment} ${payment === "insurancePay" ? `<p><strong>Insurance Provider:</strong> ${insuranceProvider || "Not provided"}</p>` : ""}</p>
+    <p><strong>Payment method:</strong> ${payment} ${payment === "insurancePay" ? `<p><strong>Insurance provider:</strong> ${insuranceProvider || "Not provided"}</p>` : ""}</p>
     <p><strong>How did you find Guided Path:</strong> ${howFind}</p>
-    <p><strong>Referral Source:</strong> ${FriendWhoRefer} ${whoProRefer} ${otherFind}
-    <p><strong>Additional Questions:</strong> ${questions}</p>
+    <p><strong>Referral source:</strong> ${FriendWhoRefer} ${whoProRefer} ${otherFind}
+    <p><strong>Additional questions:</strong> ${questions}</p>
   `;
     // `
     //   <h2>New Waitlist Form Submission</h2>
