@@ -602,6 +602,7 @@ p {
   gap: 1rem 4rem;
   margin: 0 auto;
   max-width: 30rem;
+  /* padding-left: 18px; */
 }
 
 .specialization li {
@@ -1096,5 +1097,11 @@ textarea {
 
   #lgbtq {
     height: 60px;
+  }
+}
+
+@media (max-width: 1380px) {
+  .specialization {
+    padding-left: 20px;
   }
 }

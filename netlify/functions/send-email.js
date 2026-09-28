@@ -95,9 +95,9 @@ exports.handler = async (event, context) => {
       ${
         selfChild === "child"
           ? `
-        <p><strong>Child's Name:</strong> ${childName || "Not provided"}</p>
-        <p><strong>Child's Age:</strong> ${childAge || "Not provided"}</p>
-        <p><strong>Child's Gender:</strong> ${childGender || "Not provided"}</p>
+        <p><strong>Child's name:</strong> ${childName || "Not provided"}</p>
+        <p><strong>Child's age:</strong> ${childAge || "Not provided"}</p>
+        <p><strong>Child's gender:</strong> ${childGender || "Not provided"}</p>
       `
           : ""
       } </p>
