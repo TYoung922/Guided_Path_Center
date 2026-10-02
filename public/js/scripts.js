@@ -356,7 +356,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (howLearn.value == "friend" && !fRef.value.trim()) {
           isValid = false;
           errorMessage += "Please say who reffered you.\n";
-        } else if (howLearn.value == "proReferal" && !pRef.value.trim()) {
+        } else if (howLearn.value == "proReferral" && !pRef.value.trim()) {
           isValid = false;
           errorMessage += "Please say who reffered you.\n";
         } else if (howLearn.value === "other" && !otherFind.value.trim()) {
